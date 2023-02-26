@@ -13,9 +13,9 @@ public class FillOrderFormPageOne {
 
     private By addressInput = By.cssSelector("Input.Input_Input__1iN_Z.Input_Responsible__1jDKN[placeholder='* Адрес: куда привезти заказ']");
 
+    private By metroInput = By.cssSelector(".select-search__value .select-search__input");
     private By metroStationButton = By.xpath("//*[@data-index=\"1\"]");
 
-    private By metroInput = By.cssSelector(".select-search__value .select-search__input");
 
     private By phoneNumber = By.cssSelector("Input.Input_Input__1iN_Z.Input_Responsible__1jDKN[placeholder='* Телефон: на него позвонит курьер']");
 
