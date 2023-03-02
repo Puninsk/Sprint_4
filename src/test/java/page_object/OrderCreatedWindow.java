@@ -1,4 +1,4 @@
-package pageObject;
+package page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,10 +13,10 @@ public class OrderCreatedWindow {
         this.driver = driver;
     }
 
-    private By OrderCreatedWindow = By.xpath("//*[@class='Order_Modal__YZ-d3']/*[text()='Заказ оформлен']");
+    private By orderCreatedWindow = By.xpath("//*[@class='Order_Modal__YZ-d3']/*[text()='Заказ оформлен']");
 
     public void waitForOrderConfirmationButton() {
-        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(OrderCreatedWindow));
+        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(orderCreatedWindow));
     }
 
 }

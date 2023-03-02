@@ -7,8 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.Faq;
-import pageObject.TestData;
+import page_object.Faq;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,8 +21,6 @@ public class FaqSectionTest {
 
     private final String questionToOpen;
 
-    static TestData testData = new TestData();
-
     public FaqSectionTest(String questionToOpen, String locatorFaqQuestion, String expectedQuesitonTextFaq) {
         this.questionToOpen = questionToOpen;
         this.locatorFaqQuestion = locatorFaqQuestion;
@@ -33,27 +30,24 @@ public class FaqSectionTest {
     @Parameterized.Parameters
     public static Object[][] getQuestionText() {
         return new Object[][]{
-                {testData.firstQuestionTitleLocator, testData.firstQuestionTextLocator, testData.firstQuestionText},
-                {testData.secondQuestionTitleLocator, testData.secondQuestionTextLocator, testData.secondQuestionText},
-                {testData.thirdQuestionTitleLocator, testData.thirdQuestionTextLocator, testData.thirdQuestionText},
-                {testData.forthQuestionTitleLocator, testData.forthQuestionTextLocator, testData.forthQuestionText},
-                {testData.fifthQuestionTitleLocator, testData.fifthQuestionTextLocator, testData.fifthQuestionText},
-                {testData.sixthQuestionTitleLocator, testData.sixthQuestionTextLocator, testData.sixthQuestionText},
-                {testData.seventhQuestionTitleLocator, testData.seventhQuestionTextLocator, testData.seventhQuestionText},
-                {testData.eightsQuestionTitleLocator, testData.eightsQuestionTextLocator, testData.eightsQuestionText},
+                {Faq.FIRST_QUESTION_TITLE_LOCATOR , Faq.FIRST_QUESTION_TEXT_LOCATOR, Faq.FIRST_QUESTION_TEXT},
+                {Faq.SECOND_QUESTION_TITLE_LOCATOR, Faq.SECOND_QUESTION_TEXT_LOCATOR, Faq.SECOND_QUESTION_TEXT},
+                {Faq.THIRD_QUESTION_TITLE_LOCATOR, Faq.THIRD_QUESTION_TEXT_LOCATOR, Faq.THIRD_QUESTION_TEXT},
+                {Faq.FORTH_QUESTION_TITLE_LOCATOR, Faq.FORTH_QUESTION_TEXT_LOCATOR, Faq.FORTH_QUESTION_TEXT},
+                {Faq.FIFTH_QUESTION_TITLE_LOCATOR, Faq.FIFTH_QUESTION_TEXT_LOCATOR, Faq.FIFTH_QUESTION_TEXT},
+                {Faq.SIXTH_QUESTION_TITLE_LOCATOR, Faq.SIXTH_QUESTION_TEXT_LOCATOR, Faq.SIXTH_QUESTION_TEXT},
+                {Faq.SEVENTH_QUESTION_TITLE_LOCATOR, Faq.SEVENTH_QUESTION_TEXT_LOCATOR, Faq.SEVENTH_QUESTION_TEXT},
+                {Faq.EIGHTS_QUESTION_TITLE_LOCATOR, Faq.EIGHTS_QUESTION_TEXT_LOCATOR, Faq.EIGHTS_QUESTION_TEXT},
 
         };
     }
-
     @Before
     public void setUpBrowser() {
         driver = new ChromeDriver();
     }
     @Test
     public void faqSectionTest() {
-
-
-        driver.get(testData.urlSamokat);
+        driver.get(Faq.URL_SAMOKAT);
 
         Faq objFaq = new Faq(driver);
 
@@ -68,7 +62,6 @@ public class FaqSectionTest {
         assertEquals(expected, actual);
 
     }
-
     @After
     public void cleanUpImportantWindows() {
         driver.quit();
